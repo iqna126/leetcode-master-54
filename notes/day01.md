@@ -72,6 +72,16 @@
         :type val: int
         :rtype: int
         """
+        i, size = 0, len(nums)
+        while i < size:
+          if nums[i] == val:
+            for j in range(i+1, size):
+              nums[j-1] = nums[j]
+            size -= 1
+          else:
+            i += 1
+        return size 
+        
 }
 ```
 
@@ -85,6 +95,14 @@
         :type val: int
         :rtype: int
         """
+        i, j = 0, 0
+        while j < len(nums):
+          if nums[j] != val:
+            nums[i] = nums[j]
+            i += 1
+          j +=1
+        return i
+
 }
 ```
 
@@ -100,12 +118,24 @@
           :type nums: List[int]
           :rtype: List[int]
           """
-          
+          i, j = 0, len(nums) - 1
+          k = len(nums) - 1
+          res = [float('inf')] * len(nums)
+          while i <= j:
+            if nums[i]**2 < nums[j]**2:
+              res[k] = nums[j]**2
+              k -= 1
+              j -= 1
+            else:
+              res[k] = nums[i]**2
+              k -= 1 
+              i += 1
+          return res 
+     
 }
 ```
 
-## 35.[搜索插入位置]()
-双指针法  
+## 35.[搜索插入位置](https://leetcode.com/problems/search-insert-position/description/)  
 ```python
 {
   class Solution(object):
@@ -115,6 +145,17 @@
         :type target: int
         :rtype: int
         """
+        left, right = 0, len(nums)-1
+        while left <= right:
+          middle = (left+right) // 2
+          if nums[middle] > target:
+            right = middle - 1
+          elif nums[middle] < target:
+            left = middle + 1
+          else:
+            return middle
+        return left
+
 
 }
 ```
@@ -130,6 +171,23 @@
         :type target: int
         :rtype: List[int]
         """
+        left, right = 0, len(nums)
+        while left < right:
+          middle = (left+right) // 2
+          if nums[middle] > target:
+            right = middle
+          elif nums[middle] < target:
+            left = middle + 1 
+          else:
+            i, j = middle, middle
+            while i-1>=0 and nums[i-1] == target:
+              i -= 1
+            while j+1<len(nums) and nums[j+1] == target:
+              j += 1
+            res = [i,j]
+            return res
+        res = [-1,-1]
+        return res
 }
 ```
 
