@@ -72,7 +72,6 @@
         :type val: int
         :rtype: int
         """
-        i = 0
 }
 ```
 
