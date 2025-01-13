@@ -12,7 +12,7 @@
 数组的获取： 数组通过下标索引的方式获取到下标对应的数据（**从0开始的**）。
 
 
-## 704. [二分查找](https://leetcode.com/problems/binary-search/description/) 
+## 704.[二分查找](https://leetcode.com/problems/binary-search/description/) 
 左闭右开  
 ```python
 {
@@ -61,7 +61,7 @@
 
 
 
-## 27. [移除元素](https://leetcode.com/problems/remove-element/description/)
+## 27.[移除元素](https://leetcode.com/problems/remove-element/description/)
 暴力解法  
 ```python
 {
