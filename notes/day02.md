@@ -6,7 +6,7 @@
 文章和题目详解都在[代码随想录](https://programmercarl.com/)  
 视频讲解指路卡哥[b站合集](https://space.bilibili.com/525438321/channel/collectiondetail?sid=180037)
 
-## 209. [长度最小的子数组](https://leetcode.com/problems/minimum-size-subarray-sum/description/)
+## 209.[长度最小的子数组](https://leetcode.com/problems/minimum-size-subarray-sum/description/)
 ```python
 {
     class Solution(object):
@@ -28,7 +28,7 @@
 }
 ```
 
-## 59. [螺旋矩阵II](https://leetcode.com/problems/spiral-matrix-ii/description/)
+## 59.[螺旋矩阵II](https://leetcode.com/problems/spiral-matrix-ii/description/)
 ```python
 {
     class Solution(object):
