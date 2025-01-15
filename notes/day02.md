@@ -1,7 +1,7 @@
 # 第一章  数组part02
 
-今日任务： 209.长度最小的子数组, 59.螺旋矩阵II, 区间和  
-附加: 开发商购买土地
+今日任务： 209.长度最小的子数组， 59.螺旋矩阵II， 区间和  
+附加： 开发商购买土地
 
 文章和题目详解都在[代码随想录](https://programmercarl.com/)  
 视频讲解指路卡哥[b站合集](https://space.bilibili.com/525438321/channel/collectiondetail?sid=180037)
