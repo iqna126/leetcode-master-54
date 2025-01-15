@@ -1,6 +1,6 @@
 # 第二章  链表part01
 
-今日任务：链表理论基础，203.移除链表元素, 707.设计链表, 206.反转链表  
+今日任务：链表理论基础, 203.移除链表元素, 707.设计链表, 206.反转链表  
 
 文章和题目详解都在[代码随想录](https://programmercarl.com/)  
 视频讲解指路卡哥[b站合集](https://space.bilibili.com/525438321/channel/collectiondetail?sid=180037)
