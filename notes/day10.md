@@ -6,12 +6,13 @@
 视频讲解指路卡哥[b站合集](https://space.bilibili.com/525438321/channel/collectiondetail?sid=180037)
 
 ## 栈与队列理论基础
+栈（stack）： 先进后出（LIFO），python中的实现可以用：list，deque
+队列（queue）： 先进先出（FIFO），python中的实现可以用：list，deque
 
 ## 232.[用栈实现队列](https://leetcode.com/problems/implement-queue-using-stacks/)
 ```python
 {
     class MyQueue(object):
-
         def __init__(self):
             self.stack_take = []
             self.stack_out = []
@@ -56,7 +57,6 @@
 ```python
 {
     class MyStack(object):
-
         def __init__(self):
             self.queue = deque()
             
