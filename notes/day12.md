@@ -93,7 +93,6 @@ python中二叉树节点的定义：
 144.[二叉树的前序遍历](https://leetcode.com/problems/binary-tree-preorder-traversal/)
 ```python
     class Solution(object):
-
         def preorderTraversal(self, root):
             """
             :type root: TreeNode
@@ -125,6 +124,29 @@ python中二叉树节点的定义：
             """
             if not root:
                 return []
+
+            res = []
+            stack=[root]
+            while stack:
+                node = stack.pop()
+                res.append(node.val)
+                if node.left:
+                    stack.append(node.left)
+                if node.right:
+                    stack.append(node.right)
+            return res[::-1]
+            
+```
+94.[二叉树的中序遍历](https://leetcode.com/problems/binary-tree-inorder-traversal/description/)
+```python
+    class Solution(object):
+        def inorderTraversal(self, root):
+            """
+            :type root: TreeNode
+            :rtype: List[int]
+            """
+            if not root:
+                return []
             res = []
             stack = []
             cur = root
@@ -140,28 +162,6 @@ python中二叉树节点的定义：
                     # 取栈顶元素右节点
                     cur = cur.right	
             return res
-```
-94.[二叉树的中序遍历](https://leetcode.com/problems/binary-tree-inorder-traversal/description/)
-```python
-    class Solution(object):
-        def inorderTraversal(self, root):
-            """
-            :type root: TreeNode
-            :rtype: List[int]
-            """
-            if not root:
-                return []
-
-            res = []
-            stack=[root]
-            while stack:
-                node = stack.pop()
-                res.append(node.val)
-                if node.left:
-                    stack.append(node.left)
-                if node.right:
-                    stack.append(node.right)
-            return res[::-1]
 
 
 ```
@@ -203,7 +203,7 @@ python中二叉树节点的定义：
 ## [层序遍历](https://programmercarl.com/0102.%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E5%B1%82%E5%BA%8F%E9%81%8D%E5%8E%86.html#%E7%AE%97%E6%B3%95%E5%85%AC%E5%BC%80%E8%AF%BE)
 ```python
 class Solution:
-    def levelOrder(self, root: Optional[TreeNode]) -> List[List[int]]:
+    def levelOrder(self, root):
         if not root:
             return []
         queue = collections.deque([root])
