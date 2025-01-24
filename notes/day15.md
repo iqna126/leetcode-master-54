@@ -65,10 +65,10 @@
                 res.append(one_path)
                 return
             if node.left:
-                self. dfs(node.left, res, path)
+                self.dfs(node.left, res, path)
                 path.pop()
             if node.right:
-                self.dfs( node.right, res, path)
+                self.dfs(node.right, res, path)
                 path.pop()
             
     
