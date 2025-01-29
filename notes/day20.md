@@ -48,14 +48,15 @@
             :type key: int
             :rtype: Optional[TreeNode]
             """
+            #  判断终止条件， 五种情况的讨论
             if root is None:
                 return root
             if root.val == key:
                 if root.left is None and root.right is None:
                     return None
-                elif root.left is None:
+                elif root.left is None and root.right is not None:
                     return root.right
-                elif root.right is None:
+                elif root.left is not None and root.right is None:
                     return root.left
                 else:
                     cur = root.right
@@ -63,10 +64,12 @@
                         cur = cur.left
                     cur.left = root.left
                     return root.right
-            if root.val > key:
+            # 单层递归逻辑
+            if key < root.val:
                 root.left = self.deleteNode(root.left, key)
-            if root.val < key:
+            if key > root.val:
                 root.right = self.deleteNode(root.right, key)
+    
             return root
         
 
