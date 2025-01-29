@@ -21,36 +21,21 @@
 ## 701.[二叉搜索树中的插入操作](https://leetcode.com/problems/insert-into-a-binary-search-tree/)
 ```python
     class Solution(object):
-        def __init__(self):
-            self.parent = None
-
-        def traversal(self, cur, val):
-            if cur is None:
-                node = TreeNode(val)
-                if val > self.parent.val:
-                    self.parent.right = node
-                else:
-                    self.parent.left = node
-                return
-
-            self.parent = cur
-            if cur.val > val:
-                self.traversal(cur.left, val)
-            if cur.val < val:
-                self.traversal(cur.right, val)
-
         def insertIntoBST(self, root, val):
             """
             :type root: Optional[TreeNode]
             :type val: int
             :rtype: Optional[TreeNode]
             """
-            self.parent = TreeNode(0)
             if root is None:
-                return TreeNode(val)
-            self.traversal(root, val)
+                new_node = TreeNode(val)
+                return new_node
+
+            if root.val < val:
+                root.left = self.insertIntoBST(root.left, val)
+            if root.val > val:
+                root.right = self.insertIntoBST(root.right, val)
             return root
-            
 
 ```
 
