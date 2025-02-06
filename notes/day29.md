@@ -1,6 +1,6 @@
 # 第七章 回溯算法part02
 
-今日任务： 39. 组合总和， 40.组合总和II， 131.分割回文串
+今日任务： 39.组合总和， 40.组合总和II， 131.分割回文串
 
 文章和题目详解都在[代码随想录](https://programmercarl.com/)  
 视频讲解指路卡哥[b站合集](https://space.bilibili.com/525438321/channel/collectiondetail?sid=180037)
@@ -81,8 +81,8 @@
             self.backtracking(s, 0, [], res)
             return res
 
-        def backtracking(self, s, start_index, path, result ):
-            # Base Case
+        def backtracking(self, s, start_index, path, result):
+            # 分割到末尾了就终止了
             if start_index == len(s):
                 result.append(path[:])
                 return
