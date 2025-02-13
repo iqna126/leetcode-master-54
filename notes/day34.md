@@ -5,7 +5,6 @@
 文章和题目详解都在[代码随想录](https://programmercarl.com/)  
 视频讲解指路卡哥[b站合集](https://space.bilibili.com/525438321/channel/collectiondetail?sid=180037)
 
-
 ## 134.[加油站](https://leetcode.com/problems/gas-station/)
 ```python
     class Solution(object):
@@ -15,7 +14,21 @@
             :type cost: List[int]
             :rtype: int
             """
-        
+            curSum = 0  # 当前累计的剩余油量
+            totalSum = 0  # 总剩余油量
+            position = 0  
+            
+            for i in range(len(gas)):
+                curSum += gas[i] - cost[i]
+                totalSum += gas[i] - cost[i]
+                
+                if curSum < 0:  # 当前累计剩余油量curSum小于0
+                    position = i + 1  # 起始位置更新为i+1
+                    curSum = 0  # curSum重新从0开始累计
+            
+            if totalSum < 0:
+                return -1  # 总剩余油量totalSum小于0，说明无法环绕一圈
+            return position
             
 ```
 
@@ -53,8 +66,26 @@
             :type bills: List[int]
             :rtype: bool
             """
-            
-  
+            n_5 = 0 
+            n_10 = 0
+            for i in range(len(bills)):
+                if bills[i] == 5:
+                    n_5 += 1
+                elif bills[i] == 10 and n_5 < 1:
+                    return False
+                elif bills[i] == 10:
+                    n_10 += 1
+                    n_5 -= 1
+                elif bills[i] == 20:
+                    if (n_10 < 1 and n_5<3) or n_5<1:
+                        return False
+                    if n_10 != 0:
+                        n_10 -= 1
+                        n_5 -= 1
+                    else:
+                        n_5 -=3
+            return True
+
             
 ```
 
@@ -66,5 +97,15 @@
             :type people: List[List[int]]
             :rtype: List[List[int]]
             """
+            # 先按照h维度的身高顺序从高到低排序。确定第一个维度
+            # lambda返回的是一个元组：当-x[0](维度h）相同时，再根据x[1]（维度k）从小到大排序
+            people.sort(key=lambda x: (-x[0], x[1]))
+            que = []
+        
+            # 根据每个元素的第二个维度k，贪心算法，进行插入
+            # people已经排序过了：同一高度时k值小的排前面。
+            for p in people:
+                que.insert(p[1], p)
+            return que
             
 ```
