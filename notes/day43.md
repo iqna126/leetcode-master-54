@@ -75,24 +75,26 @@
 
 ## [多重背包问题, 56. 携带矿石资源（第八期模拟笔试）](https://kamacoder.com/problempage.php?pid=1066)
 ```python
-    C, N = input().split(" ")
-    C, N = int(C), int(N)
-
-    # value数组需要判断一下非空不然过不了
-    weights = [int(x) for x in input().split(" ")]
-    values = [int(x) for x in input().split(" ") if x]
-    nums = [int(x) for x in input().split(" ")]
-
+    # 从键盘上采集输入数据
+    C, N = map(int, input().split())  # 宇航舱的容量和矿石的种类数量
+    weights = list(map(int, input().split()))  # 矿石的重量
+    values = list(map(int, input().split()))  # 矿石的价格
+    limits = list(map(int, input().split()))  # 矿石的可用数量上限
+ 
+    # 创建一维动态规划数组，初始化为0
     dp = [0] * (C + 1)
-    # 遍历背包容量
-    for i in range(N):
-        for j in range(C, weights[i] - 1, -1):
-            for k in range(1, nums[i] + 1):
-                # 遍历 k，如果已经大于背包容量直接跳出循环
-                if k * weights[i] > j:
-                    break
-                dp[j] = max(dp[j], dp[j - weights[i] * k] + values[i] * k) 
-    print(dp[-1])
+ 
+    # 遍历每种矿石
+    for i in range(1, N + 1):
+        # 逆序遍历容量，确保每个矿石只使用一次
+        for j in range(C, 0, -1):
+            # 遍历当前矿石可用数量上限
+            for k in range(1, min(j // weights[i - 1], limits[i - 1]) + 1):
+                # 计算选择 k 个当前矿石 i 后的总价值
+                dp[j] = max(dp[j], dp[j - k * weights[i - 1]] + k * values[i - 1])
+ 
+    # 返回容量为 C 时的最大价值
+    print(dp[C])
 
 ```
 
