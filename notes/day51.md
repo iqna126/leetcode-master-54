@@ -13,19 +13,20 @@
             :type s: str
             :rtype: int
             """
+            # whether s[i,j] is a palindromic substring
             dp = [[False] * len(s) for _ in range(len(s))]
-            result = 0
-            for i in range(len(s)-1, -1, -1): #注意遍历顺序
-                for j in range(i, len(s)):
+            res = 0 
+            for i in range(len(s)-1,-1,-1):
+                for j in range(i,len(s)):
                     if s[i] == s[j]:
-                        if j - i <= 1: #情况一 和 情况二
-                            result += 1
+                        if j-i<=1:
+                            res +=1
                             dp[i][j] = True
-                        elif dp[i+1][j-1]: #情况三
-                            result += 1
+                        elif dp[i+1][j-1]:
+                            res += 1
                             dp[i][j] = True
-            return result
-        
+            return res
+            
 
 ```
 
