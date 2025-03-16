@@ -22,8 +22,7 @@
                 stack.append(i)
             return res 
 
-
-        
+    
 ```
 
 ## 496.[下一个更大元素I](https://leetcode.com/problems/next-greater-element-i/)
